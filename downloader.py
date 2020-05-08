@@ -23,19 +23,19 @@ photos = flickr.walk(text=keyword,
 					 
 
 for i, photo in enumerate(photos):
-	print (i)	
+    print (i)	
 
-	url = photo.get('url_c')	
+    url = photo.get('url_c')	
 
-	if i > urlsnumber:
-		break
+    if i > urlsnumber:
+        break
+
+    if not url:
+        continue
 		
-	if not url:
-		continue
-		
-	print(url)
-	try:
-		# Download image from the url 
-		urllib.request.urlretrieve(url, folder + "/" + "{:04d}".format(i) +'.jpg')
-	except Exception:
-		print('Some error happened.')
+    print(url)
+    try:
+        # Download image from the url 
+        urllib.request.urlretrieve(url, folder + "/" + "{:04d}".format(i) +'.jpg')
+    except Exception:
+        print('Some error happened.')
